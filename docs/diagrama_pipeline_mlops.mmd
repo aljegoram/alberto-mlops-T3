@@ -1,0 +1,27 @@
+flowchart TD
+    A[Definición del problema médico] --> B[Fuentes de datos clínicos]
+    B --> C[Ingesta de datos]
+    C --> D[Azure Blob Storage]
+    D --> E[Validación y calidad de datos]
+    E --> F[Preparación de datos]
+    F --> G[Azure ML Training Jobs]
+    G --> H[MLflow Tracking]
+    H --> I[Evaluación de métricas]
+    I --> J{¿Cumple métricas mínimas?}
+    J -- No --> K[Ajustar datos o modelo]
+    K --> G
+    J -- Sí --> L[Azure ML Model Registry]
+    L --> M[Aprobación y promoción]
+    M --> N[FastAPI + Docker]
+    N --> O[GitHub Actions CI/CD]
+    O --> P[Container Registry]
+    P --> Q[Azure ML Managed Online Endpoint]
+    Q --> R[API de inferencia]
+    R --> S[Usuarios médicos o sistemas externos]
+    R --> T[Logs y predicciones]
+    T --> U[Azure Monitor / Application Insights]
+    U --> V[Evidently AI / Drift Monitoring]
+    V --> W{¿Hay drift o degradación?}
+    W -- No --> U
+    W -- Sí --> X[Reentrenamiento controlado]
+    X --> G

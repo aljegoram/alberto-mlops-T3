@@ -1,0 +1,13 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+type: command
+display_name: entrenamiento-modelo-medico-simulado
+experiment_name: clasificacion-medica-simulada
+description: Entrenamiento académico de modelo médico simulado con tracking MLflow.
+code: ../
+command: >-
+  python -m src.data.generate_dataset &&
+  python -m src.training.train
+environment:
+  conda_file: environment.yml
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
+compute: azureml:cpu-cluster

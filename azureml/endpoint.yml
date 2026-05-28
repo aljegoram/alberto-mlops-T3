@@ -1,0 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
+name: ep-medico-simulado
+auth_mode: key
+description: Endpoint online para servicio médico simulado del Taller 3.
